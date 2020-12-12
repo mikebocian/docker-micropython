@@ -5,7 +5,7 @@ help:  ## This help page
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-19s %s\n", $$1, $$2}'
 
 build: ## build jedie/micropython:latest
-	docker build . --pull -t jedie/micropython:latest
+	docker build . --pull -t local/micropython:latest
 
 shell: build ## Open bash shell in micropython docker container
 	docker run -it jedie/micropython:latest /bin/bash
